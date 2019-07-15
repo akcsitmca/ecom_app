@@ -51,6 +51,69 @@
         android:layout_below="@+id/login_password"
         android:layout_marginTop="5dp">
 
+        <com.rey.material.widget.CheckBox
+            android:id="@+id/remember_me_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Material.Drawable.CheckBox"
+            android:text="Remember Me"
+            android:textColor="@color/colorPrimaryDark"
+            app:cbd_strokeColor="@color/colorPrimaryDark"
+            android:gravity="center_vertical"
+            android:textSize="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="17dp"/>
+
+        <TextView
+            android:id="@+id/forget_password_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forget Password?"
+            android:textSize="16dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="login"
+        />
+
+    <TextView
+        android:id="@+id/admin_panel_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I'm an Admin"
+        android:textSize="20dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/login_btn"
+        android:layout_marginEnd="23dp"
+        />
+
+    <TextView
+        android:id="@+id/not_admin_panel_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I'm not an Admin"
+        android:textSize="20dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/login_btn"
+        android:layout_marginStart="23dp"
+        android:visibility="invisible"
+        />
 
 </RelativeLayout>
