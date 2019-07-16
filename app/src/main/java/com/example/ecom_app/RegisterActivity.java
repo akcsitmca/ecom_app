@@ -28,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button CreateAccountBtn;
     private EditText InputName, InputPhoneNumber, InputPassword;
     private ProgressDialog loadingBar;
+    private String parentDbName = "Users";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,62 +66,24 @@ public class RegisterActivity extends AppCompatActivity {
             loadingBar.setCancelable(false);
             loadingBar.show();
 
-//            final DatabaseReference RootRef;
-//            RootRef = FirebaseDatabase.getInstance().getReference();
-//
-//            Hashtable<String, Object> userdateMap = new Hashtable<>();
-//            Toast.makeText(RegisterActivity.this,"userdatemap created",Toast.LENGTH_SHORT).show();
-//            userdateMap.put("phone", phone);
-//            Toast.makeText(RegisterActivity.this,"phone updated",Toast.LENGTH_SHORT).show();
-//            userdateMap.put("password", password);
-//            Toast.makeText(RegisterActivity.this,"password updated",Toast.LENGTH_SHORT).show();
-//            userdateMap.put("name", name);
-//            Toast.makeText(RegisterActivity.this,"userdatemap updated",Toast.LENGTH_SHORT).show();
-//
-//            RootRef.child("phone").child(phone).updateChildren(userdateMap)
-//                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<Void> task) {
-//                            if (task.isSuccessful()){
-//                                Toast.makeText(RegisterActivity.this, "Congratulation, your account is created", Toast.LENGTH_SHORT).show();
-//                                loadingBar.dismiss();
-//
-//                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-//                                startActivity(intent);
-//
-//                                finish();
-//                            }
-//                            else {
-//                                loadingBar.dismiss();
-//                                Toast.makeText(RegisterActivity.this, "Network Issue, Please try again", Toast.LENGTH_SHORT).show();
-//
-//                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-//                                startActivity(intent);
-//
-//                                finish();
-//                            }
-//                        }
-//                    });
-
-
             validatephonenumber(name, phone, password);
         }
     }
 
     private void validatephonenumber(final String name, final String phone, final String password) {
         final DatabaseReference RootRef;
-        RootRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        RootRef = FirebaseDatabase.getInstance().getReference().child(parentDbName);
 
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(!(dataSnapshot.child("Users").child(phone).exists())){
+                if(!(dataSnapshot.child(parentDbName).child(phone).exists())){
                     HashMap<String, Object> userdateMap = new HashMap<>();
                     userdateMap.put("phone", phone);
                     userdateMap.put("password", password);
                     userdateMap.put("name", name);
 
-                    RootRef.child("Users").child(phone).updateChildren(userdateMap)
+                    RootRef.child(parentDbName).child(phone).updateChildren(userdateMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
