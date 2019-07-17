@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this,"Welcome Admin", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Intent intent = new Intent(LoginActivity.this, AdminAddNewProductActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminCategoryAdtivity.class);
                                 startActivity(intent);
 
                                 finish();
