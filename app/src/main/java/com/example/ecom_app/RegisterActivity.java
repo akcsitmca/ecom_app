@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -20,15 +22,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.net.HttpURLConnection;
 import java.util.HashMap;
-import java.util.Hashtable;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.util.Random;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private Button CreateAccountBtn;
-    private EditText InputName, InputPhoneNumber, InputPassword;
+    private EditText InputName, InputPhoneNumber, InputPassword, ConfirmPassword;
     private ProgressDialog loadingBar;
-    private String parentDbName = "Users";
+    private String parentDbName = "Users", phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +49,8 @@ public class RegisterActivity extends AppCompatActivity {
         InputName = (EditText) findViewById(R.id.register_username);
         InputPhoneNumber = (EditText) findViewById(R.id.register_ph_no);
         InputPassword = (EditText) findViewById(R.id.register_password);
+        ConfirmPassword = (EditText) findViewById(R.id.register_confirm_password);
+
         loadingBar = new ProgressDialog(this);
 
         CreateAccountBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,20 +59,32 @@ public class RegisterActivity extends AppCompatActivity {
                 createAccount();
             }
         });
+
+        Intent intent = getIntent();
+        phone = intent.getStringExtra("mobile");
+        InputPhoneNumber.setText(phone);
+
     }
 
     private void createAccount() {
         String name = InputName.getText().toString();
-        String phone = InputPhoneNumber.getText().toString();
+        //String phone = InputPhoneNumber.getText().toString();
         String password = InputPassword.getText().toString();
+        String c_password = ConfirmPassword.getText().toString();
+
+
 
         if (TextUtils.isEmpty(name)) {
             Toast.makeText(RegisterActivity.this, "Please write your name", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(RegisterActivity.this, "Please write phone number", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(RegisterActivity.this, "Please write password", Toast.LENGTH_SHORT).show();
-        } else {
+        } else if (TextUtils.isEmpty(c_password)){
+            Toast.makeText(RegisterActivity.this, "Please confirm your password", Toast.LENGTH_SHORT).show();
+        } else if (!password.equals(c_password)){
+            Toast.makeText(RegisterActivity.this, "Confirm Password does not match", Toast.LENGTH_SHORT).show();
+        }
+        else {
+
             loadingBar.setTitle("Create Account");
             loadingBar.setMessage("Please Wait, we are checking credentials");
             loadingBar.setCancelable(false);
@@ -124,4 +148,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
 }

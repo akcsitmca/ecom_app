@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserOrderActivity">
+
+    <RelativeLayout
+        android:id="@+id/undelivered_orders_rill"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Undelivered Orders"
+            android:textSize="25dp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:id="@+id/list_undelivered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/background_light"
+        android:layout_below="@+id/undelivered_orders_rill">
+
+        <TextView
+            android:id="@+id/user_order_name"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/user_order_phone_number"
+            android:layout_width="160dp"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="Phone Number:"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/user_order_total_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Price"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/user_order_phone_number"
+            android:textStyle="bold"
+            android:layout_marginTop="18dp"/>
+        <TextView
+            android:id="@+id/user_order_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/user_order_total_price"
+            android:textStyle="bold"
+            android:layout_marginTop="18dp"/>
+        <TextView
+            android:id="@+id/user_order_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="City"
+            android:gravity="right"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginRight="5dp"
+            android:layout_below="@+id/user_order_total_price"
+            android:textStyle="bold"
+            android:layout_marginTop="18dp"/>
+
+        <TextView
+            android:id="@+id/user_order_date_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Date-Time"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginRight="5dp"
+            android:layout_below="@+id/user_order_city"
+            android:textStyle="bold"
+            android:layout_marginTop="18dp"/>
+
+        <TextView
+            android:id="@+id/user_order_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="State"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginRight="5dp"
+            android:layout_below="@+id/user_order_city"
+            android:textStyle="bold"
+            android:layout_marginTop="18dp"/>
+
+
+        <Button
+            android:id="@+id/user_order_details_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_order_date_time"
+            android:layout_marginTop="15dp"
+            android:text="Detail"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/user_order_cancel_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_order_details_btn"
+            android:layout_marginTop="15dp"
+            android:text="Cancel Your Order"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/no_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="10dp"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:text="No Order  is Placed Till Now"
+        android:textSize="20dp"
+        android:visibility="invisible"/>
+
+
+</RelativeLayout>

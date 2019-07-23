@@ -88,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
                         Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED){
 
                     Toast.makeText(MainActivity.this, "have Permission", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                    Intent intent = new Intent(MainActivity.this, MobileNumberForRegistrationActivity.class);
                     startActivity(intent);
                 }
                 else {
                     requestInternetPermission();
 
-                    Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                    Intent intent = new Intent(MainActivity.this, MobileNumberForRegistrationActivity.class);
                     startActivity(intent);
                 }
 

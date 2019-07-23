@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class AdminCategoryAdtivity extends AppCompatActivity {
 
     private ImageView t_shirts, sports_t_shirts, female_dress, sweaters, glasses, purse_bag, hat, shoes, headphone, laptop, watch, mobile;
+
+    private Button LogoutBtn, CheckOrderBtn, CheckAllProductBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,36 @@ public class AdminCategoryAdtivity extends AppCompatActivity {
         watch = (ImageView) findViewById(R.id.watch);
         mobile = (ImageView) findViewById(R.id.mobile);
 
+        LogoutBtn = (Button) findViewById(R.id.admin_logout_btn);
+        CheckOrderBtn = (Button) findViewById(R.id.check_order_btn);
+        CheckAllProductBtn = (Button) findViewById(R.id.check_all_item_btn);
+
+        LogoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminCategoryAdtivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+                finish();
+            }
+        });
+
+        CheckOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminCategoryAdtivity.this, AdminNewOrdersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CheckAllProductBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminCategoryAdtivity.this, AdminShowAllProductActivity.class);
+                startActivity(intent);
+            }
+        });
 
         t_shirts.setOnClickListener(new View.OnClickListener() {
             @Override

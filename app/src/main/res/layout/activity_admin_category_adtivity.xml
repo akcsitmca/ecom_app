@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@+id/slogan_category"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="30dp">
         <ImageView
 
             android:id="@+id/t_shirts"
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@+id/linear1_category_layout"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="15dp">
         <ImageView
 
             android:id="@+id/glasses"
@@ -101,7 +101,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@+id/linear2_category_layout"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="15dp">
         <ImageView
 
             android:id="@+id/headphone"
@@ -130,5 +130,44 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/admin_logout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="15dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="Logout"/>
+
+    <Button
+        android:id="@+id/check_order_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/admin_logout_btn"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="15dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="Check New Orders"/>
+
+   <Button
+    android:id="@+id/check_all_item_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/check_order_btn"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:textSize="15dp"
+    android:textColor="@android:color/black"
+    android:textStyle="bold"
+    android:text="Check all Products"/>
 
 </RelativeLayout>
